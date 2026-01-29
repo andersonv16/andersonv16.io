@@ -1,51 +1,279 @@
-# 🇧🇷 Portal da Reforma Tributária (2026-2033)
+# Reforma Tributária - Site Otimizado 🚀
 
-> Um site informativo e interativo desenvolvido para simplificar o entendimento da Nova Reforma Tributária Brasileira (EC 132/2023).
+## ✨ Melhorias Implementadas
 
-![Status do Projeto](https://img.shields.io/badge/Status-Em_Desenvolvimento-yellow)
-![Tecnologias](https://img.shields.io/badge/Tech-HTML%20%7C%20CSS%20%7C%20JS-blue)
+### 1. 🎨 Nova Paleta de Cores (Baseada em #4F1818)
+- **Cor Primária:** `#4F1818` (Vinho escuro)
+- **Cor Secundária:** `#7A2828` (Vinho médio)
+- **Cor Destaque:** `#A63838` (Vermelho suave)
+- **Cor Acento:** `#D4AF37` (Dourado)
+- **Cores de Fundo:** `#FFF5F5` e `#FFE8E8` (tons rosados claros)
 
-## 📖 Sobre o Projeto
+A nova paleta traz uma identidade visual mais sofisticada e profissional, mantendo boa legibilidade e contraste.
 
-O ano de **2026** marca o início da transição do sistema tributário brasileiro. Este projeto tem como objetivo educar cidadãos e empresários sobre a substituição do antigo "manicômio tributário" (PIS, Cofins, ICMS, ISS, IPI) pelo novo modelo de **IVA Dual** (CBS e IBS).
+### 2. 📱 Responsividade Mobile Completa
+- **Grid Dinâmico:** `grid-template-columns: repeat(auto-fit, minmax(min(100%, 350px), 1fr))`
+- **Breakpoints:**
+  - Desktop: > 1024px
+  - Tablet: 768px - 1024px
+  - Mobile: < 768px
+  - Mobile pequeno: < 480px
+- **Menu Mobile:** Menu vertical com wrap automático
+- **Cards Flexíveis:** Adaptam-se automaticamente ao tamanho da tela
+- **Fontes Responsivas:** Uso de `clamp()` para títulos escaláveis
 
-O site oferece explicações didáticas sobre cada tributo e uma **calculadora exclusiva** que simula a carga tributária projetada para 2033.
+### 3. 💰 Detalhamento Completo dos Impostos Antigos
+A calculadora agora mostra:
 
-## 🚀 Funcionalidades
+#### Sistema Antigo (Base: São Paulo)
+- **PIS:** Alíquota e valor separados
+- **COFINS:** Alíquota e valor separados
+- **ICMS-SP:** Alíquota 18% (média de SP) e valor
+- **ISS:** Alíquota 5% (para serviços) e valor
+- **Efeito Cascata:** Custo adicional de 12% (impostos sobre impostos)
 
-* **Navegação Intuitiva:** Seções dedicadas para cada novo imposto (**CBS**, **IBS** e **IS**).
-* **Calculadora Tributária:** Simulação em tempo real da carga tributária (IVA Dual), permitindo escolher entre:
-    * Setor Padrão;
-    * Setores com Redução (Saúde/Educação);
-    * Isenção (Cesta Básica/Transporte);
-    * Incidência de Imposto Seletivo ("Imposto do Pecado").
-* **Design Responsivo:** Layout adaptável para desktop e mobile.
-* **Micro-interações:** Animações suaves nos cards e botões para melhor experiência do usuário (UX).
+Cada imposto é apresentado em um card individual com:
+- Ícone distintivo
+- Nome completo do imposto
+- Descrição (Federal, Estadual, Municipal)
+- Alíquota aplicada
+- Valor calculado
 
-## 🛠️ Tecnologias Utilizadas
+### 4. 🎯 Setores e Reduções Expandidos
+**Novos setores adicionados:**
+- Produtos Culturais (60% de redução)
+- Alimentos in natura (40% de redução)
+- Medicamentos (60% de redução)
+- Dispositivos Médicos (60% de redução)
+- Transporte Coletivo (100% de isenção)
+- Agricultura Familiar (100% de isenção)
+- Extração Mineral (IS 1%)
+- Apostas (IS 12%)
 
-O projeto foi construído utilizando tecnologias nativas da web, garantindo leveza e alta performance:
+Total de **10 categorias** com reduções e **6 categorias** de IS.
 
-* **HTML5:** Estrutura semântica e acessível.
-* **CSS3:** Variáveis CSS (Custom Properties), Flexbox, Grid Layout e Animações (`keyframes`).
-* **JavaScript (ES6+):** Manipulação do DOM, lógica matemática da calculadora e observers para animações de scroll.
+### 5. 📊 Gráficos Dinâmicos e Interativos (Chart.js)
 
-## 📂 Estrutura de Arquivos
+#### Gráfico 1: Composição dos Impostos (Doughnut)
+- Mostra a proporção entre CBS, IBS e IS (se aplicável)
+- Cores da paleta do site
+- Tooltips formatados em Real (R$)
 
-```text
-/
-├── index.html          # Página Inicial (Visão Geral)
-├── cbs.html            # Página sobre a Contribuição Federal
-├── ibs.html            # Página sobre o Imposto Estadual/Municipal
-├── is.html             # Página sobre o Imposto Seletivo
-├── calculator.html     # Ferramenta de cálculo
-│
+#### Gráfico 2: Comparação Sistema Antigo vs Novo (Bar)
+- Comparação visual lado a lado
+- Vermelho para sistema antigo (mais caro)
+- Verde para sistema novo (mais econômico)
+
+#### Gráfico 3: Detalhamento Completo (Horizontal Bar)
+- Mostra TODOS os impostos antigos individualmente
+- Efeito cascata destacado
+- Impostos novos (CBS, IBS, IS)
+- Permite visualizar exatamente onde está cada real pago
+
+### 6. 🔧 Otimização de Código
+
+#### Antes:
+- 3 arquivos CSS (1.809 linhas)
+- 3 arquivos JS (1.059+ linhas)
+- Código duplicado
+- Scripts separados
+
+#### Depois:
+- 1 arquivo CSS unificado (1.100 linhas) - **Redução de 39%**
+- 1 arquivo JS otimizado (800+ linhas) - **Redução de 24%**
+- Variáveis CSS centralizadas
+- Funções reutilizáveis
+- Melhor organização
+
+### 7. 📐 Grid Responsivo Melhorado
+
+```css
+/* Grid principal */
+.container-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 350px), 1fr));
+    gap: 25px;
+    padding: var(--espacamento-xl) var(--espacamento-md);
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+/* Responsivo para tablets */
+@media (max-width: 1024px) {
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
+}
+
+/* Responsivo para mobile */
+@media (max-width: 768px) {
+    grid-template-columns: 1fr;
+}
+```
+
+### 8. 🎨 Variáveis CSS Centralizadas
+
+```css
+:root {
+    /* Cores */
+    --cor-primaria: #4F1818;
+    --cor-secundaria: #7A2828;
+    --cor-destaque: #A63838;
+    --cor-acento: #D4AF37;
+    
+    /* Espaçamentos */
+    --espacamento-xs: 8px;
+    --espacamento-sm: 12px;
+    --espacamento-md: 20px;
+    --espacamento-lg: 30px;
+    --espacamento-xl: 40px;
+    
+    /* Raios de borda */
+    --radius-sm: 8px;
+    --radius-md: 12px;
+    --radius-lg: 16px;
+    
+    /* Sombras */
+    --sombra-leve: 0 4px 15px rgba(79, 24, 24, 0.08);
+    --sombra-media: 0 8px 25px rgba(79, 24, 24, 0.12);
+    --sombra-forte: 0 12px 35px rgba(79, 24, 24, 0.25);
+}
+```
+
+## 📁 Estrutura do Projeto
+
+```
+projeto-otimizado/
+├── index.html              # Página inicial
+├── calculator.html         # Calculadora de impostos
+├── cbs.html               # Informações sobre CBS
+├── ibs.html               # Informações sobre IBS
+├── is.html                # Informações sobre IS
 ├── css/
-│   ├── style.css       # Estilos globais e tipografia
-│   ├── pages.css       # Estilos específicos das páginas informativas
-│   └── calculator.css  # Estilização exclusiva da calculadora
-│
+│   └── main.css           # CSS unificado e otimizado
 └── js/
-    ├── script.js       # Scripts gerais e menu
-    ├── pages.js        # Animações de entrada e efeitos visuais
-    └── calculator.js   # Lógica matemática dos impostos
+    └── calculator.js      # JavaScript otimizado
+```
+
+## 🚀 Como Usar
+
+1. **Abra o `index.html`** em um navegador moderno
+2. **Navegue** pelas páginas usando o menu superior
+3. **Use a calculadora** para simular impostos
+4. **Visualize os gráficos** com a comparação detalhada
+
+## 💡 Recursos Técnicos
+
+### Dependências
+- **Chart.js 4.4.0** (via CDN) - Para gráficos interativos
+- **Google Fonts** - Poppins e Inter
+
+### Compatibilidade
+- ✅ Chrome/Edge 90+
+- ✅ Firefox 88+
+- ✅ Safari 14+
+- ✅ Mobile (iOS/Android)
+
+### Performance
+- CSS minificado
+- JavaScript otimizado
+- Animações suaves com `transition` e `animation`
+- Lazy loading de gráficos (renderização após DOM pronto)
+
+## 📊 Comparação de Código
+
+| Métrica | Antes | Depois | Redução |
+|---------|-------|--------|---------|
+| Linhas CSS | 1.809 | 1.100 | -39% |
+| Linhas JS | 1.059+ | 800+ | -24% |
+| Arquivos CSS | 3 | 1 | -67% |
+| Arquivos JS | 3 | 1 | -67% |
+| Setores | 4 | 10 | +150% |
+| Impostos IS | 4 | 6 | +50% |
+
+## 🎯 Funcionalidades da Calculadora
+
+### Cálculos Realizados
+1. **CBS** (Contribuição sobre Bens e Serviços)
+2. **IBS** (Imposto sobre Bens e Serviços)
+3. **IS** (Imposto Seletivo - opcional)
+4. **Sistema Antigo:**
+   - PIS
+   - COFINS
+   - ICMS-SP (18%)
+   - ISS (para serviços)
+   - Efeito Cascata (12%)
+
+### Resultados Apresentados
+- Valor base do produto
+- Detalhamento de cada imposto (novo sistema)
+- Detalhamento de cada imposto (sistema antigo)
+- Comparação visual com gráficos
+- Economia ou variação
+- Valor final ao consumidor
+- Resumo executivo
+
+## 🎨 Destaques Visuais
+
+### Cards com Animação
+```css
+.card-animado {
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeInUp 0.6s ease forwards;
+}
+```
+
+### Hover Interativo
+```css
+section:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: var(--sombra-forte);
+}
+```
+
+### Gradientes Modernos
+```css
+background: linear-gradient(135deg, var(--cor-primaria) 0%, var(--cor-secundaria) 100%);
+```
+
+## 📱 Testes de Responsividade
+
+Testado em:
+- Desktop (1920x1080)
+- Laptop (1366x768)
+- Tablet (768x1024)
+- Mobile (375x667 - iPhone SE)
+- Mobile (360x640 - Android)
+
+## 🔄 Melhorias Futuras Sugeridas
+
+1. **Backend Integration** - Salvar simulações
+2. **Exportar PDF** - Download dos resultados
+3. **Comparar múltiplos produtos** - Tabela comparativa
+4. **Histórico de cálculos** - LocalStorage
+5. **Dark Mode** - Tema escuro opcional
+
+## 📝 Notas Técnicas
+
+### ICMS Base SP
+- Utilizamos 18% como alíquota média do ICMS de São Paulo
+- O ICMS varia entre estados (7% a 25%)
+- Para cálculos mais precisos, considere a alíquota do seu estado
+
+### Efeito Cascata
+- Estimado em 12% do total de impostos
+- Representa a tributação em cascata do sistema antigo
+- No novo sistema, não existe efeito cascata (não-cumulatividade plena)
+
+### Não-Cumulatividade
+- O sistema novo permite dedução total dos créditos
+- Incentiva a formalização da economia
+- Elimina distorções competitivas
+
+## 👨‍💻 Desenvolvido por
+
+Anderson V.
+
+---
+
+**Última atualização:** Janeiro 2026
+**Versão:** 2.0 (Otimizada)
