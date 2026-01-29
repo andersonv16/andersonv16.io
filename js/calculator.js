@@ -618,7 +618,7 @@ function renderizarGraficos(dados) {
                 labels: ['CBS', 'IBS', dados.aplicarIS ? 'IS' : null].filter(Boolean),
                 datasets: [{
                     data: [dados.valorCBS, dados.valorIBS, dados.aplicarIS ? dados.valorIS : null].filter(v => v !== null),
-                    backgroundColor: ['#A63838', '#D4AF37', '#7A2828'],
+                    backgroundColor: ['#0066cc', '#ffb700', '#2a5a7a'],
                     borderWidth: 2,
                     borderColor: '#fff'
                 }]
@@ -722,9 +722,9 @@ function renderizarGraficos(dados) {
                     data: [...valoresAntigo, dados.valorCBS, dados.valorIBS, dados.aplicarIS ? dados.valorIS : null].filter(v => v !== null && v !== undefined),
                     backgroundColor: [
                         ...labelsAntigo.map(() => '#D32F2F'),
-                        '#A63838',
-                        '#D4AF37',
-                        dados.aplicarIS ? '#7A2828' : null
+                        '#0066cc',
+                        '#ffb700',
+                        dados.aplicarIS ? '#2a5a7a' : null
                     ].filter(Boolean),
                     borderWidth: 2,
                     borderColor: '#fff'
@@ -827,7 +827,7 @@ style.textContent = `
         align-items: center;
         padding: 15px;
         margin-bottom: 15px;
-        background: var(--cor-fundo-secundario);
+        background: #e9ecef;
         border-radius: var(--radius-md);
     }
     
@@ -876,7 +876,7 @@ style.textContent = `
     }
     
     .sistema-antigo-section {
-        background: linear-gradient(135deg, #FFE8E8 0%, #FFD4D4 100%);
+        background: linear-gradient(135deg, #FFEBEE 0%, #FFCDD2 100%);
         border: 2px solid var(--cor-erro);
     }
     
@@ -962,13 +962,13 @@ style.textContent = `
         justify-content: space-between;
         align-items: center;
         padding: 12px;
-        background: var(--cor-fundo);
+        background: #f8f9fa;
         border-radius: var(--radius-sm);
         transition: all var(--transicao-rapida);
     }
     
     .detalhe-linha:hover {
-        background: var(--cor-fundo-secundario);
+        background: #e9ecef;
     }
     
     .detalhe-linha.reducao {
@@ -977,7 +977,7 @@ style.textContent = `
     }
     
     .detalhe-linha.destaque {
-        background: linear-gradient(135deg, var(--cor-fundo-secundario) 0%, #FFD4D4 100%);
+        background: linear-gradient(135deg, #e3f2ff 0%, #bbdefb 100%);
         border-left: 4px solid var(--cor-destaque);
         font-weight: 600;
     }
@@ -1179,7 +1179,7 @@ style.textContent = `
     }
     
     .grafico-card {
-        background: var(--cor-fundo);
+        background: #f8f9fa;
         padding: 25px;
         border-radius: var(--radius-md);
         box-shadow: var(--sombra-leve);
@@ -1192,7 +1192,7 @@ style.textContent = `
     }
     
     .grafico-card-full {
-        background: var(--cor-fundo);
+        background: #f8f9fa;
         padding: 25px;
         border-radius: var(--radius-md);
         box-shadow: var(--sombra-leve);
@@ -1212,7 +1212,7 @@ style.textContent = `
     }
     
     .resumo-final-card {
-        background: var(--cor-fundo);
+        background: #f8f9fa;
         border-radius: var(--radius-md);
         padding: 25px;
         margin-top: 20px;
@@ -1254,7 +1254,7 @@ style.textContent = `
     }
     
     .linha-resumo.total-impostos {
-        background: linear-gradient(135deg, var(--cor-fundo-secundario) 0%, #FFD4D4 100%);
+        background: linear-gradient(135deg, #e3f2ff 0%, #bbdefb 100%);
         border: 2px solid var(--cor-destaque);
         padding: 20px;
         font-size: 18px;

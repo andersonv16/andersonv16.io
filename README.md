@@ -2,14 +2,14 @@
 
 ## ✨ Melhorias Implementadas
 
-### 1. 🎨 Nova Paleta de Cores (Baseada em #4F1818)
-- **Cor Primária:** `#4F1818` (Vinho escuro)
-- **Cor Secundária:** `#7A2828` (Vinho médio)
-- **Cor Destaque:** `#A63838` (Vermelho suave)
-- **Cor Acento:** `#D4AF37` (Dourado)
-- **Cores de Fundo:** `#FFF5F5` e `#FFE8E8` (tons rosados claros)
+### 1. 🎨 Paleta de Cores Otimizada (Sistema Azul Original)
+- **Cor Primária:** `#1a3a52` (Azul escuro profissional)
+- **Cor Secundária:** `#2a5a7a` (Azul médio)
+- **Cor Destaque:** `#0066cc` (Azul vibrante)
+- **Cor Acento:** `#ffb700` (Amarelo dourado)
+- **Cores de Fundo:** `#f0f2f5` e `#e6e9ed` (cinzas suaves)
 
-A nova paleta traz uma identidade visual mais sofisticada e profissional, mantendo boa legibilidade e contraste.
+A paleta mantém a identidade visual original com azul profissional e acentos em dourado, garantindo ótima legibilidade e contraste.
 
 ### 2. 📱 Responsividade Mobile Completa
 - **Grid Dinâmico:** `grid-template-columns: repeat(auto-fit, minmax(min(100%, 350px), 1fr))`
@@ -109,7 +109,14 @@ Total de **10 categorias** com reduções e **6 categorias** de IS.
 }
 ```
 
-### 8. 🎨 Variáveis CSS Centralizadas
+### 8. 🎨 Destaque 2026 no IBS
+A seção "Destaque de 2026" na página do IBS agora usa o mesmo estilo visual da "Dica do Especialista":
+- Fundo com gradiente azul (primária → secundária)
+- Título em amarelo dourado
+- Texto centralizado
+- Visual consistente com outras seções de destaque
+
+### 9. 🎨 Variáveis CSS Centralizadas
 
 ```css
 :root {

@@ -2,7 +2,7 @@
 
 ## 🎨 Paleta de Cores
 
-### Antes (Azul)
+### Antes (Azul - Original)
 ```
 Primária:    #1a3a52 (Azul escuro)
 Secundária:  #2a5a7a (Azul médio)
@@ -11,14 +11,16 @@ Acento:      #ffb700 (Amarelo)
 Fundo:       #f0f2f5 (Cinza)
 ```
 
-### Depois (Vinho)
+### Depois (Azul - Otimizada)
 ```
-Primária:    #4F1818 (Vinho escuro)
-Secundária:  #7A2828 (Vinho médio)
-Destaque:    #A63838 (Vermelho suave)
-Acento:      #D4AF37 (Dourado)
-Fundo:       #FFF5F5 (Rosado claro)
+Primária:    #1a3a52 (Azul escuro)
+Secundária:  #2a5a7a (Azul médio)
+Destaque:    #0066cc (Azul claro)
+Acento:      #ffb700 (Amarelo)
+Fundo:       #f0f2f5 (Cinza)
 ```
+
+**Nota:** Mantivemos a paleta azul original que já funcionava bem, focando as melhorias em responsividade, funcionalidade e código.
 
 ## 📱 Responsividade
 
