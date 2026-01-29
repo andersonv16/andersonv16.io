@@ -74,6 +74,7 @@ body {
 .menu-lista {
     list-style: none;
     display: flex;
+    margin: auto;
     gap: 0;
     justify-content: center;
     flex-wrap: wrap;
@@ -967,11 +968,7 @@ li {
         font-size: 24px;
         padding: var(--espacamento-lg) 15px;
     }
-    
-    .menu-lista {
-        flex-direction: column;
-    }
-    
+       
     .menu-link {
         padding: 15px var(--espacamento-md);
         font-size: 14px;
