@@ -58,8 +58,7 @@ body {
     background: linear-gradient(135deg, var(--cor-fundo) 0%, var(--cor-fundo-secundario) 100%);
     color: var(--cor-texto);
     overflow-x: hidden;
-    line-height: 1.6;
-}
+ }
 
 /* ========== MENU PRINCIPAL ========== */
 .menu-principal {
