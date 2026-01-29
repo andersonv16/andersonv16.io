@@ -5,8 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Calculadora de Impostos - Reforma Tributária</title>
-    <link rel="stylesheet" href="css/pages.css">
-    <link rel="stylesheet" href="css/calculator.css">
+    <link rel="stylesheet" href="css/main.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
 </head>
 
 <body>
@@ -26,28 +26,43 @@
         <!-- Calculadora Principal -->
         <section id="calc-principal" class="card-animado calc-section">
             <h2>💰 Simule os Novos Impostos</h2>
-            <p>Calcule quanto você pagará de CBS e IBS em suas operações comerciais.</p>
+            <p>Calcule quanto você pagará de CBS e IBS em suas operações comerciais com detalhamento completo dos impostos antigos.</p>
 
             <div class="calc-form">
                 <div class="form-group">
                     <label for="valor-produto">Valor do Produto/Serviço (R$)</label>
-                    <input type="number" id="valor-produto" placeholder="1000.00" min="0" step="0.01">
+                    <input type="number" id="valor-produto" placeholder="1000.00" min="0" step="0.01" required>
                 </div>
 
                 <div class="form-group">
-                    <label for="tipo-operacao">Tipo de Operação</label>
+                    <label for="tipo-operacao">Tipo de Operação / Setor</label>
                     <select id="tipo-operacao">
-                        <option value="normal">Operação Normal</option>
-                        <option value="saude">Saúde (Redução 60%)</option>
-                        <option value="educacao">Educação (Redução 60%)</option>
-                        <option value="transporte">Transporte Público (Redução 100%)</option>
-                        <option value="cesta-basica">Cesta Básica (Redução 100%)</option>
+                        <option value="normal">Operação Normal (Alíquota Padrão)</option>
+                        <optgroup label="Redução de 100% (Isenção)">
+                            <option value="transporte">Transporte Público</option>
+                            <option value="cesta-basica">Cesta Básica Nacional</option>
+                            <option value="transporte-coletivo">Transporte Coletivo</option>
+                            <option value="agricultura-familiar">Produtos da Agricultura Familiar</option>
+                        </optgroup>
+                        <optgroup label="Redução de 60%">
+                            <option value="saude">Serviços de Saúde</option>
+                            <option value="educacao">Serviços de Educação</option>
+                            <option value="medicamentos">Medicamentos</option>
+                            <option value="dispositivos-medicos">Dispositivos Médicos e de Acessibilidade</option>
+                            <option value="cultura">Produtos e Serviços Culturais</option>
+                        </optgroup>
+                        <optgroup label="Redução de 40%">
+                            <option value="alimentos">Alimentos in natura e Hortifrútis</option>
+                        </optgroup>
                     </select>
                 </div>
 
                 <div class="form-group">
                     <label for="credito-anterior">Crédito de Impostos Anteriores (R$)</label>
                     <input type="number" id="credito-anterior" placeholder="0.00" min="0" step="0.01" value="0">
+                    <small style="color: var(--cor-texto-claro); font-size: 12px; margin-top: 5px;">
+                        💡 Informe os impostos já pagos em etapas anteriores da cadeia produtiva
+                    </small>
                 </div>
 
                 <div class="checkbox-group">
@@ -64,6 +79,8 @@
                         <option value="bebida-alcoolica">Bebida Alcoólica (Alíquota: 15%)</option>
                         <option value="refrigerante">Refrigerante (Alíquota: 10%)</option>
                         <option value="veiculo-poluente">Veículo Poluente (Alíquota: 8%)</option>
+                        <option value="apostas">Apostas (Alíquota: 12%)</option>
+                        <option value="mineracao">Extração Mineral (Alíquota: 1%)</option>
                     </select>
                 </div>
 
@@ -73,91 +90,22 @@
             </div>
         </section>
 
-        <!-- Resultado -->
-        <section id="resultado" class="card-animado resultado-section" style="display: none;">
-            <h2>📊 Resultado do Cálculo</h2>
-            
-            <div class="resultado-card">
-                <div class="resultado-item destaque">
-                    <span class="label">Valor Base do Produto</span>
-                    <span class="valor" id="res-valor-base">R$ 0,00</span>
-                </div>
-
-                <div class="separador"></div>
-
-                <div class="resultado-item">
-                    <span class="label">CBS (8,8%)</span>
-                    <span class="valor" id="res-cbs">R$ 0,00</span>
-                </div>
-
-                <div class="resultado-item">
-                    <span class="label">IBS (17,7%)</span>
-                    <span class="valor" id="res-ibs">R$ 0,00</span>
-                </div>
-
-                <div class="resultado-item" id="res-is-container" style="display: none;">
-                    <span class="label">IS (Imposto Seletivo)</span>
-                    <span class="valor" id="res-is">R$ 0,00</span>
-                </div>
-
-                <div class="resultado-item" id="res-reducao-container" style="display: none;">
-                    <span class="label desconto">Redução Aplicada</span>
-                    <span class="valor desconto" id="res-reducao">- R$ 0,00</span>
-                </div>
-
-                <div class="resultado-item" id="res-credito-container" style="display: none;">
-                    <span class="label desconto">Crédito Anterior</span>
-                    <span class="valor desconto" id="res-credito">- R$ 0,00</span>
-                </div>
-
-                <div class="separador"></div>
-
-                <div class="resultado-item total">
-                    <span class="label">Total de Impostos</span>
-                    <span class="valor" id="res-total-impostos">R$ 0,00</span>
-                </div>
-
-                <div class="resultado-item total-final">
-                    <span class="label">Valor Total ao Consumidor</span>
-                    <span class="valor" id="res-valor-final">R$ 0,00</span>
-                </div>
-            </div>
-
-            <div class="comparacao-sistemas">
-                <h3>📈 Comparação: Sistema Antigo vs Novo</h3>
-                <div class="comparacao-grid">
-                    <div class="sistema-card antigo">
-                        <h4>Sistema Antigo (PIS/COFINS/ICMS/ISS)</h4>
-                        <p class="valor-sistema" id="sistema-antigo">R$ 0,00</p>
-                        <p class="info">Estimativa com efeito cascata</p>
-                    </div>
-                    <div class="sistema-card novo">
-                        <h4>Sistema Novo (CBS/IBS)</h4>
-                        <p class="valor-sistema" id="sistema-novo">R$ 0,00</p>
-                        <p class="info">Sem efeito cascata</p>
-                    </div>
-                </div>
-                <!-- CORREÇÃO 1: Adicionado style="display: none;" -->
-                <div class="economia" id="economia-container" style="display: none;">
-                    <span class="label">Economia Estimada:</span>
-                    <span class="valor" id="economia-valor">R$ 0,00</span>
-                </div>
-            </div>
-        </section>
-
         <!-- Informações Adicionais -->
         <section id="info-calc" class="card-animado">
             <h2>ℹ️ Como usar a Calculadora</h2>
             <ul>
                 <li><strong>Valor do Produto:</strong> Informe o valor base do produto ou serviço (sem impostos).</li>
-                <li><strong>Tipo de Operação:</strong> Selecione se há redução de alíquota aplicável (saúde, educação, etc.).</li>
-                <li><strong>Crédito Anterior:</strong> Se você comprou insumos, pode deduzir os impostos já pagos nessas compras.</li>
+                <li><strong>Tipo de Operação:</strong> Selecione o setor ou categoria para aplicar a redução correta (se houver).</li>
+                <li><strong>Crédito Anterior:</strong> Se você comprou insumos, pode deduzir os impostos já pagos nessas compras (não-cumulatividade).</li>
                 <li><strong>Imposto Seletivo:</strong> Marque se o produto está sujeito ao IS (cigarros, bebidas, etc.).</li>
             </ul>
+            <p style="margin-top: 15px; padding: 15px; background: var(--cor-fundo-secundario); border-radius: var(--radius-sm); border-left: 4px solid var(--cor-info);">
+                <strong>📊 Novidade:</strong> Agora a calculadora mostra o detalhamento completo dos impostos antigos (PIS, COFINS, ICMS-SP, ISS) com alíquotas separadas e o efeito cascata!
+            </p>
         </section>
 
         <section id="aliquotas-ref" class="card-animado">
-            <h2>📋 Alíquotas de Referência</h2>
+            <h2>📋 Alíquotas de Referência (Sistema Novo)</h2>
             <div class="aliquotas-grid">
                 <div class="aliquota-card">
                     <h3>CBS</h3>
@@ -193,6 +141,12 @@
                     <p class="aliquota-efetiva">Alíquota efetiva: 10,6%</p>
                 </div>
                 <div class="setor-item">
+                    <span class="icon">💊</span>
+                    <h3>Medicamentos</h3>
+                    <p>Redução de 60%</p>
+                    <p class="aliquota-efetiva">Alíquota efetiva: 10,6%</p>
+                </div>
+                <div class="setor-item">
                     <span class="icon">🚌</span>
                     <h3>Transporte Público</h3>
                     <p>Isenção total</p>
@@ -204,22 +158,41 @@
                     <p>Isenção total</p>
                     <p class="aliquota-efetiva">Alíquota efetiva: 0%</p>
                 </div>
+                <div class="setor-item">
+                    <span class="icon">🎭</span>
+                    <h3>Cultura</h3>
+                    <p>Redução de 60%</p>
+                    <p class="aliquota-efetiva">Alíquota efetiva: 10,6%</p>
+                </div>
+                <div class="setor-item">
+                    <span class="icon">🥬</span>
+                    <h3>Alimentos in natura</h3>
+                    <p>Redução de 40%</p>
+                    <p class="aliquota-efetiva">Alíquota efetiva: 15,9%</p>
+                </div>
+                <div class="setor-item">
+                    <span class="icon">🌾</span>
+                    <h3>Agricultura Familiar</h3>
+                    <p>Isenção total</p>
+                    <p class="aliquota-efetiva">Alíquota efetiva: 0%</p>
+                </div>
             </div>
         </section>
 
         <section id="observacoes" class="card-animado">
             <h2>⚠️ Observações Importantes</h2>
             <div class="warning">
-                <p><strong>Valores Estimados:</strong> Esta calculadora utiliza as alíquotas projetadas para o novo sistema. Os valores podem sofrer ajustes conforme a implementação avança.</p>
+                <p><strong>Valores Estimados:</strong> Esta calculadora utiliza as alíquotas projetadas para o novo sistema em sua fase final (2033). Os valores podem sofrer ajustes conforme a implementação avança.</p>
             </div>
             <div class="highlight">
-                <p><strong>Período de Transição (2026):</strong> Atualmente estamos na fase de teste com alíquotas reduzidas (CBS: 0,9% e IBS: 0,1%). A calculadora simula o sistema em sua fase final (2033).</p>
+                <p><strong>Período de Transição (2026):</strong> Atualmente estamos na fase de teste com alíquotas reduzidas (CBS: 0,9% e IBS: 0,1%). A calculadora simula o sistema em sua fase final para fins de comparação.</p>
+            </div>
+            <div class="highlight">
+                <p><strong>Base ICMS São Paulo:</strong> Os cálculos do sistema antigo utilizam como referência as alíquotas de São Paulo. O ICMS pode variar entre estados (de 7% a 25%), mas utilizamos 18% como média para SP.</p>
             </div>
         </section>
     </div>
 
-    <!-- CORREÇÃO 2: Ordem dos scripts mantida, mas com garantia de carregamento -->
-    <script src="js/pages.js"></script>
     <script src="js/calculator.js"></script>
 </body>
 

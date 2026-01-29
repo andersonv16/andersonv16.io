@@ -780,8 +780,8 @@ function voltarCalculadora() {
 }
 
 // ========== ESTILOS INJETADOS ==========
-const calcstyle = document.createElement('style');
-calcstyle.textContent = `
+const style = document.createElement('style');
+style.textContent = `
     .pagina-resultado {
         max-width: 1400px;
         margin: 0 auto;
@@ -1331,6 +1331,6 @@ calcstyle.textContent = `
         }
     }
 `;
-document.head.appendChild(calcstyle);
+document.head.appendChild(style);
 
 console.log('✅ Calculator.js otimizado carregado com sucesso!');
