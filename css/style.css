@@ -95,6 +95,7 @@ body {
 .menu-link.ativo::before {
     width: 100%;
 }
+
 /* Título Principal */
 h1 {
     color: white;
